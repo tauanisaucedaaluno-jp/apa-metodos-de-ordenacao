@@ -9,8 +9,9 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 ## Resumo do Status Geral
 
 - [x] **Concepção e Formalização Inicial:** Ideia do algoritmo (IGIS), pseudocódigo, invariantes e análise teórica preliminar documentados no [CONTEXT.md](../CONTEXT.md).
-- [ ] **Implementação, Testes e Benchmarking:** Pendente de codificação no template e registro nos scripts oficiais.
-- [ ] **Relatório Técnico e Empacotamento:** Pendente de redação formal, inserção de gráficos e auditoria final do pacote.
+- [x] **Implementação e Testes de Corretude (Issues #01 e #02):** Implementação modular SOLID no template e 100% de aprovação na suíte oficial com teste de estabilidade.
+- [ ] **Benchmarking e Análise Empírica (Issues #03 e #04):** Bateria de testes de desempenho e curvas comparativas (com colega).
+- [ ] **Relatório Técnico e Empacotamento (Issues #05 e #06):** Redação formal, gráficos e auditoria final do pacote (em conjunto).
 
 ---
 
@@ -37,7 +38,7 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #02: Integração e Validação na Suíte Oficial de Corretude
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Testes / QA
 - **Componente:** `codigo/python/test_suite.py` e `codigo/Makefile`
 - **Contexto:**
