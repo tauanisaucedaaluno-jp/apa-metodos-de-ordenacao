@@ -71,9 +71,38 @@ def _encontrar_posicao_insercao(
     return low
 
 
+def _deslocar_e_inserir(
+    a: List[Any],
+    i: int,
+    pos: int,
+    chave: Any,
+    movimentacoes: List[int],
+) -> None:
+    """
+    Desloca os elementos no intervalo [pos..i-1] uma posição à direita
+    e insere a chave na posição calculada (SRP).
+
+    Parâmetros:
+        a: Lista contígua sendo ordenada in-place.
+        i: Posição original de onde a chave foi retirada.
+        pos: Posição de destino da chave.
+        chave: Elemento a ser posicionado.
+        movimentacoes: Contador mutável de movimentações físicas de dados.
+    """
+    for j in range(i - 1, pos - 1, -1):
+        a[j + 1] = a[j]
+        movimentacoes[0] += 1
+    a[pos] = chave
+    movimentacoes[0] += 1
+
+
 def my_authorial_sort(arr: List[Any]) -> Tuple[List[Any], int, int]:
     """
-    IMPLEMENTE AQUI SEU ALGORITMO AUTORAL.
+    Ordenação por Inserção Guiada por Interpolação (IGIS).
+
+    Combina a mecânica in-place do Insertion Sort com busca guiada por interpolação,
+    alcançando Theta(n log log n) comparações no caso médio para distribuições uniformes,
+    preservando estabilidade (upper bound) e complexidade espacial Theta(1).
 
     Parâmetros:
         arr (List[Any]): Lista de entrada a ser ordenada.
@@ -81,34 +110,31 @@ def my_authorial_sort(arr: List[Any]) -> Tuple[List[Any], int, int]:
     Retorno:
         Tuple[List[Any], int, int]:
             - Lista ordenada
-            - Total de comparações realizadas
-            - Total de movimentações/trocas realizadas
+            - Total de comparações de chaves realizadas
+            - Total de movimentações físicas realizadas
     """
     a = list(arr)
     n = len(a)
-    comps = 0
-    moves = 0
 
-    # =========================================================================
-    # TODO: Escreva sua lógica autoral aqui.
-    # Exemplo temporário (substitua pelo seu algoritmo):
+    # Casos-limite triviais (N=0 ou N=1): nenhuma comparação nem movimentação
+    if n <= 1:
+        return a, 0, 0
+
+    comparacoes = [0]
+    movimentacoes = [0]
+
     for i in range(1, n):
-        key = a[i]
-        moves += 1
-        j = i - 1
-        while j >= 0:
-            comps += 1
-            if a[j] > key:
-                a[j + 1] = a[j]
-                moves += 1
-                j -= 1
-            else:
-                break
-        a[j + 1] = key
-        moves += 1
-    # =========================================================================
+        chave = a[i]
+        movimentacoes[0] += 1  
 
-    return a, comps, moves
+        pos = _encontrar_posicao_insercao(a, 0, i - 1, chave, comparacoes)
+
+        _deslocar_e_inserir(a, i, pos, chave, movimentacoes)
+
+    return a, comparacoes[0], movimentacoes[0]
+
+
+ordenacao_autoral_igis = my_authorial_sort
 
 
 # =============================================================================
@@ -151,5 +177,5 @@ class TestStudentAuthorialSort(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    print("🧪 Executando testes unitários no seu algoritmo autoral...")
+    print("[TESTES] Executando testes unitarios...")
     unittest.main(verbosity=2)
