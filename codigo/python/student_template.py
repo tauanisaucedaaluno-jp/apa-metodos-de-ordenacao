@@ -12,6 +12,65 @@ from typing import Any, List, Tuple
 import unittest
 
 
+def _estimar_posicao(a: List[Any], low: int, high: int, chave: Any) -> int:
+    """
+    Calcula uma estimativa da posição de inserção via interpolação linear (OCP/LSP).
+
+    Pré-condição: a[low..high] está ordenado e low <= high.
+    Pós-condição: retorna um índice válido dentro do intervalo fechado [low, high].
+
+    Raciocínio:
+        Se os valores nos extremos forem iguais (a[low] == a[high]) ou se os tipos
+        não suportarem subtração direta (ex: strings ou objetos customizados),
+        aplica fallback gracioso para o ponto médio (comportamento de busca binária).
+    """
+    if a[low] == a[high]:
+        return (low + high) // 2
+
+    try:
+        fracao = (chave - a[low]) / (a[high] - a[low])
+        guess = low + int(fracao * (high - low))
+    except (TypeError, ZeroDivisionError):
+        return (low + high) // 2
+
+    return max(low, min(guess, high))
+
+
+def _encontrar_posicao_insercao(
+    a: List[Any],
+    low: int,
+    high: int,
+    chave: Any,
+    comparacoes: List[int],
+) -> int:
+    """
+    Localiza o ponto de inserção no prefixo ordenado a[low..high] usando busca
+    guiada por interpolação com semântica de upper-bound (SRP).
+
+    Pré-condição: a[low..high] está ordenado.
+    Pós-condição: retorna o menor índice pos em [low, high + 1] tal que
+                  a[pos] > chave. Elementos de chave idêntica ficam à esquerda,
+                  preservando a estabilidade do algoritmo.
+    """
+    while low <= high:
+        comparacoes[0] += 1
+        if a[low] == a[high]:
+            comparacoes[0] += 1
+            if chave < a[low]:
+                return low
+            return high + 1
+
+        pos_estimada = _estimar_posicao(a, low, high, chave)
+
+        comparacoes[0] += 1
+        if a[pos_estimada] <= chave:
+            low = pos_estimada + 1
+        else:
+            high = pos_estimada - 1
+
+    return low
+
+
 def my_authorial_sort(arr: List[Any]) -> Tuple[List[Any], int, int]:
     """
     IMPLEMENTE AQUI SEU ALGORITMO AUTORAL.
