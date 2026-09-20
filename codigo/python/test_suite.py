@@ -15,6 +15,7 @@ from classical import (
     quick_sort,
     selection_sort,
 )
+from student_template import my_authorial_sort
 
 
 class BaseSortMixin:
@@ -86,7 +87,6 @@ class BaseSortMixin:
     def test_10_almost_sorted(self):
         """Vetor quase ordenado (95% ordenado com poucas permutações locais)"""
         data = list(range(200))
-        # Introduz algumas trocas pontuais
         for i in (10, 50, 120, 180):
             data[i], data[i + 1] = data[i + 1], data[i]
         res, _, _ = self.sort_fn(data)
@@ -121,6 +121,11 @@ class TestQuickSort(unittest.TestCase, BaseSortMixin):
 class TestAuthorialSort(unittest.TestCase, BaseSortMixin):
     sort_fn = staticmethod(dpes_sort)
     name = "Authorial Sort (DPES)"
+
+
+class TestIGISSort(unittest.TestCase, BaseSortMixin):
+    sort_fn = staticmethod(my_authorial_sort)
+    name = "Authorial Sort (IGIS)"
 
 
 if __name__ == "__main__":
