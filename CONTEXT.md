@@ -118,7 +118,7 @@ função IGIS_sort(a):
 - [x] Enunciado lido e resumido.
 - [x] Pacote de código do professor explorado (README, `authorial.py`/DPES, `student_template.py`).
 - [x] Mecanismo autoral escolhido e formalizado (IGIS): pseudocódigo, invariantes, complexidade.
-- [ ] Implementar `my_authorial_sort` em `codigo/python/student_template.py` seguindo o pseudocódigo acima, com contadores `comps`/`moves` fiéis à lógica.
+- [x] Implementar `my_authorial_sort` em `codigo/python/student_template.py` seguindo o pseudocódigo acima, com contadores `comps`/`moves` fiéis à lógica.
 - [ ] Rodar `python3 python/student_template.py` (testes embutidos) e depois `make test_python` (suíte oficial completa) — cobrir vazio, único, ordenado, reverso, repetidos, aleatório.
 - [ ] Adicionar o algoritmo ao dicionário `algorithms` em `benchmark.py` e rodar `make benchmark_python` para gerar tabelas/gráficos vs. N crescente.
 - [ ] Escrever a comparação crítica contra pelo menos 2 clássicos (sugestão: Insertion Sort — mesma família — e Quick Sort — para contraste de paradigma).

@@ -16,7 +16,7 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #01: Implementação Modular do Algoritmo Autoral (IGIS) com Instrumentação
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Funcionalidade / Implementação
 - **Componente:** `codigo/python/student_template.py`
 - **Contexto:**
