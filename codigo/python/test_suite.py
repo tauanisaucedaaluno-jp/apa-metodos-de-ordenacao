@@ -127,6 +127,42 @@ class TestIGISSort(unittest.TestCase, BaseSortMixin):
     sort_fn = staticmethod(my_authorial_sort)
     name = "Authorial Sort (IGIS)"
 
+    def test_11_stability_with_duplicate_keys(self):
+        """Valida que a busca upper-bound preserva a ordem relativa de chaves iguais."""
+        class ItemEstavel:
+            def __init__(self, chave: int, ordem_original: int):
+                self.chave = chave
+                self.ordem_original = ordem_original
+
+            def __lt__(self, other):
+                return self.chave < other.chave
+
+            def __le__(self, other):
+                return self.chave <= other.chave
+
+            def __eq__(self, other):
+                return self.chave == other.chave
+
+            def __repr__(self):
+                return f"({self.chave}, id={self.ordem_original})"
+
+        dados = [
+            ItemEstavel(10, 1),
+            ItemEstavel(5, 2),
+            ItemEstavel(10, 3),
+            ItemEstavel(2, 4),
+            ItemEstavel(10, 5),
+            ItemEstavel(5, 6),
+            ItemEstavel(10, 7),
+        ]
+        resultado, _, _ = self.sort_fn(dados)
+
+        ordens_chave_5 = [item.ordem_original for item in resultado if item.chave == 5]
+        self.assertEqual(ordens_chave_5, [2, 6], "Quebra de estabilidade na chave 5!")
+
+        ordens_chave_10 = [item.ordem_original for item in resultado if item.chave == 10]
+        self.assertEqual(ordens_chave_10, [1, 3, 5, 7], "Quebra de estabilidade na chave 10!")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
