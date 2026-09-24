@@ -6,7 +6,7 @@ Este repositório contém a concepção, formalização, implementação e valid
 
 ---
 
-## 📌 Sobre o Algoritmo Autoral: IGIS
+## Sobre o Algoritmo: IGIS
 
 O **IGIS (*Interpolation-Guided Insertion Sort*)** é uma evolução estrutural do método de ordenação por inserção (*Insertion Sort*).
 
@@ -26,7 +26,7 @@ O **IGIS** substitui essa busca ingênua por uma **busca guiada por interpolaç�
 
 ---
 
-## 📂 Estrutura do Repositório
+## Estrutura do Repositório
 
 ```text
 ├── codigo/
@@ -48,7 +48,7 @@ O **IGIS** substitui essa busca ingênua por uma **busca guiada por interpolaç�
 
 ---
 
-## 🚀 Como Executar e Reproduzir os Testes
+## Como Executar e Reproduzir os Testes
 
 ### Pré-requisitos
 * Python 3.10 ou superior.
@@ -68,13 +68,13 @@ python codigo/python/test_suite.py
 
 ---
 
-## 📋 Status do Backlog de Issues
+## Status do Backlog de Issues
 
 O desenvolvimento está estruturado em 6 issues sequenciais:
 
 - [x] **Issue #01:** Implementação Modular do Algoritmo Autoral (IGIS) com Instrumentação e SOLID.
 - [x] **Issue #02:** Integração e Validação na Suíte Oficial de Corretude (100% de aprovação e estabilidade).
-- [ ] **Issue #03:** Integração no Framework de Benchmark e Coleta Experimental.
+- [x] **Issue #03:** Integração no Framework de Benchmark e Coleta Experimental.
 - [ ] **Issue #04:** Análise Comparativa Empírica e Teórica vs. Métodos Clássicos.
 - [ ] **Issue #05:** Redação do Relatório Técnico Completo.
 - [ ] **Issue #06:** Revisão de Conformidade, Reprodutibilidade e Pacote de Entrega.
