@@ -120,7 +120,7 @@ função IGIS_sort(a):
 - [x] Mecanismo autoral escolhido e formalizado (IGIS): pseudocódigo, invariantes, complexidade.
 - [x] Implementar `my_authorial_sort` em `codigo/python/student_template.py` seguindo o pseudocódigo acima, com contadores `comps`/`moves` fiéis à lógica.
 - [x] Rodar `python3 python/student_template.py` (testes embutidos) e depois `make test_python` (suíte oficial completa) — cobrir vazio, único, ordenado, reverso, repetidos, aleatório.
-- [ ] Adicionar o algoritmo ao dicionário `algorithms` em `benchmark.py` e rodar `make benchmark_python` para gerar tabelas/gráficos vs. N crescente.
+- [x] Adicionar o algoritmo ao dicionário `algorithms` em `benchmark.py` e rodar `make benchmark_python` para gerar tabelas/gráficos vs. N crescente.
 - [ ] Escrever a comparação crítica contra pelo menos 2 clássicos (sugestão: Insertion Sort — mesma família — e Quick Sort — para contraste de paradigma).
 - [ ] Montar o entregável final (relatório ou slides) com todas as seções exigidas na seção 4 do enunciado, incluindo a declaração obrigatória de uso de IA (esta conversa deve ser referenciada nela: uso de IA para formalização do algoritmo e apoio à análise).
 - [ ] Preparar a defesa oral (saber justificar cada escolha: por que interpolação, por que o fallback, por que o resultado médio não muda a ordem O(n²) total).
