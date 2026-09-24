@@ -1,5 +1,20 @@
 # Relatório Experimental de Benchmarks — APA (TP1)
 
+> Gerado automaticamente por `python/benchmark.py` — seed 42, 3 repetições por tamanho.
+
+## Gráficos Comparativos
+
+### Visão Geral — Todos os Algoritmos
+![Benchmark Geral](benchmark_results.png)
+
+### IGIS (Aluno) vs DPES (Professor) — Lado a Lado por Distribuição
+![Lado a Lado](benchmark_authorials_side_by_side.png)
+
+### Confronto Direto IGIS × DPES — Métrica por Métrica
+![Confronto Direto](benchmark_authorials_direct_comparison.png)
+
+---
+
 ## Distribuição: `RANDOM`
 
 ### 1. Tempo Médio de Execução (ms)

@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# C++ build artifacts
+codigo/build/
+*.o
+*.exe
+
+# Gráficos gerados localmente fora da pasta docs/
+# (os oficiais em docs/ SÃO versionados)
+*.png
+!docs/*.png
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/

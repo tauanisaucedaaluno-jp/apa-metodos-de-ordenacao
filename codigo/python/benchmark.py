@@ -369,9 +369,9 @@ def plot_authorials_direct_comparison(results: dict, output_path: str = "benchma
 def main():
     parser = argparse.ArgumentParser(description="Benchmark de Algoritmos de Ordenação — APA")
     parser.add_argument("--trials", type=int, default=3, help="Número de repetições por teste")
-    parser.add_argument("--plot", type=str, default="benchmark_results.png", help="Caminho para salvar o gráfico geral")
-    parser.add_argument("--side-by-side", type=str, default="benchmark_authorials_side_by_side.png", help="Caminho para gráfico lado a lado dos autorais")
-    parser.add_argument("--direct-comparison", type=str, default="benchmark_authorials_direct_comparison.png", help="Caminho para confronto direto IGIS vs DPES")
+    parser.add_argument("--plot", type=str, default=None, help="Caminho para salvar o gráfico geral")
+    parser.add_argument("--side-by-side", type=str, default=None, help="Caminho para gráfico lado a lado dos autorais")
+    parser.add_argument("--direct-comparison", type=str, default=None, help="Caminho para confronto direto IGIS vs DPES")
     parser.add_argument("--export-md", type=str, default="../../docs/benchmark_results.md", help="Exportar tabelas Markdown")
     args = parser.parse_args()
 
@@ -391,20 +391,27 @@ def main():
     random.seed(42)
     results = run_benchmark(algorithms, sizes, distributions, trials=args.trials)
 
-    # Determina caminho de exportação do markdown
+    # Resolve caminhos absolutos com base no diretório do script.
+    # Isso garante que `make benchmark_python` (executado a partir de codigo/)
+    # sempre salve todos os artefatos em docs/ — independente do cwd do chamador.
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    md_path = os.path.normpath(os.path.join(script_dir, args.export_md))
+    docs_dir = os.path.normpath(os.path.join(script_dir, "../../docs"))
+
+    md_path     = os.path.normpath(os.path.join(script_dir, args.export_md))
+    plot_path   = args.plot            or os.path.join(docs_dir, "benchmark_results.png")
+    side_path   = args.side_by_side    or os.path.join(docs_dir, "benchmark_authorials_side_by_side.png")
+    direct_path = args.direct_comparison or os.path.join(docs_dir, "benchmark_authorials_direct_comparison.png")
 
     print_markdown_summary(results, sizes, output_file=md_path)
 
     # 1. Gráfico Geral (Todos os algoritmos)
-    plot_benchmark_results(results, args.plot)
+    plot_benchmark_results(results, plot_path)
 
     # 2. Gráfico Lado a Lado: O nosso (IGIS) à esquerda e o do Professor (DPES) à direita
-    plot_authorials_side_by_side(results, args.side_by_side)
+    plot_authorials_side_by_side(results, side_path)
 
     # 3. Gráfico de Confronto Direto métrica a métrica (IGIS vs DPES)
-    plot_authorials_direct_comparison(results, args.direct_comparison)
+    plot_authorials_direct_comparison(results, direct_path)
 
 
 if __name__ == "__main__":
