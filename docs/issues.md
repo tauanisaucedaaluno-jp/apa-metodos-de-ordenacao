@@ -9,9 +9,9 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 ## Resumo do Status Geral
 
 - [x] **Concepção e Formalização Inicial:** Ideia do algoritmo (IGIS), pseudocódigo, invariantes e análise teórica preliminar documentados no [CONTEXT.md](../CONTEXT.md).
-- [x] **Implementação e Testes de Corretude (Issues #01 e #02):** Implementação modular SOLID no template e 100% de aprovação na suíte oficial com teste de estabilidade.
-- [ ] **Benchmarking e Análise Empírica (Issues #03 e #04):** Bateria de testes de desempenho e curvas comparativas (com colega).
-- [ ] **Relatório Técnico e Empacotamento (Issues #05 e #06):** Redação formal, gráficos e auditoria final do pacote (em conjunto).
+- [x] **Benchmarking e Análise Empírica (Issue #03):** Bateria de testes de desempenho concluída com geração de tabelas e gráficos comparativos lado a lado (IGIS vs DPES e baselines).
+- [ ] **Análise Comparativa Teórica vs Empírica (Issue #04):** Elaboração da discussão técnica confrontando as ordens de grandeza.
+- [ ] **Relatório Técnico e Empacotamento (Issues #05 e #06):** Redação formal, gráficos e auditoria final do pacote.
 
 ---
 
@@ -53,18 +53,21 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #03: Integração no Framework de Benchmark e Coleta Experimental
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Benchmark / Experimentos
-- **Componente:** `codigo/python/benchmark.py`, `codigo/Makefile`
+- **Componente:** `codigo/python/benchmark.py`, `docs/benchmark_results.md`, gráficos PNG
 - **Contexto:**
   O framework avalia tempo de CPU, comparações e movimentações para diferentes distribuições (aleatório, ordenado, reverso, quase ordenado, duplicados) variando $N$.
 - **Objetivos e Critérios de Aceite:**
-  1. Registrar `my_authorial_sort` no dicionário `algorithms` do script [benchmark.py](../codigo/python/benchmark.py).
-  2. Executar baterias completas de testes com repetições (`trials >= 3`) via `make benchmark_python`.
-  3. Gerar os artefatos de saída:
-     - Tabelas estatísticas consolidadas (médias de tempo em ms, comparações e movimentações).
-     - Gráficos comparativos (`benchmark_results.png`) confrontando o IGIS com os baselines (especialmente Insertion Sort, Quick Sort e DPES).
-  4. Salvar e organizar os dados brutos e imagens para inclusão direta no relatório.
+  1. [x] Registrar `my_authorial_sort` no dicionário `algorithms` do script [benchmark.py](../codigo/python/benchmark.py).
+  2. [x] Executar baterias completas de testes com repetições (`trials=3`).
+  3. [x] Gerar os artefatos de saída:
+     - Tabelas estatísticas completas de Tempo, Comparações e Movimentações salvas em [docs/benchmark_results.md](benchmark_results.md).
+     - Gráficos comparativos gerados e organizados:
+       - `benchmark_results.png`: Visão geral completa de todos os algoritmos para as 3 métricas.
+       - `benchmark_authorials_side_by_side.png`: Gráfico separando o IGIS (Aluno) à esquerda e o DPES (Professor) à direita para cada distribuição.
+       - `benchmark_authorials_direct_comparison.png`: Confronto direto entre IGIS e DPES métrica por métrica.
+  4. [x] Salvar e organizar os dados brutos e imagens na pasta `docs/` para inclusão direta no relatório.
 
 ---
 
