@@ -10,7 +10,7 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 - [x] **Concepção e Formalização Inicial:** Ideia do algoritmo (IGIS), pseudocódigo, invariantes e análise teórica preliminar documentados no [CONTEXT.md](../CONTEXT.md).
 - [x] **Benchmarking e Análise Empírica (Issue #03):** Bateria de testes de desempenho concluída com geração de tabelas e gráficos comparativos lado a lado (IGIS vs DPES e baselines).
-- [ ] **Análise Comparativa Teórica vs Empírica (Issue #04):** Elaboração da discussão técnica confrontando as ordens de grandeza.
+- [x] **Análise Comparativa Teórica vs Empírica (Issue #04):** Discussão técnica concluída em `docs/analise_comparativa.md`.
 - [ ] **Relatório Técnico e Empacotamento (Issues #05 e #06):** Redação formal, gráficos e auditoria final do pacote.
 
 ---
@@ -73,7 +73,7 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #04: Análise Comparativa Empírica e Teórica vs. Métodos Clássicos
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Análise Algorítmica / Conteúdo do Relatório
 - **Componente:** `docs/relatorio/` (Seção 5 do Relatório)
 - **Contexto:**
