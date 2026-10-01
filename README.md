@@ -30,7 +30,7 @@ O **IGIS** substitui essa busca ingênua por uma **busca guiada por interpolaç�
 
 ```text
 ├── codigo/
-│   ├── Makefile                  # Comandos de automação
+│   ├── Makefile                  # Comandos de automação (make test_python, make benchmark_python)
 │   ├── README.md                 # Guia técnico da infraestrutura de código
 │   ├── python/
 │   │   ├── student_template.py   # Implementação oficial do algoritmo autoral (IGIS)
@@ -41,17 +41,24 @@ O **IGIS** substitui essa busca ingênua por uma **busca guiada por interpolaç�
 │   │   └── metrics.py            # Utilitários de instrumentação
 │   └── cpp/                      # Equivalentes em C++17
 ├── docs/
-│   └── issues.md                 # Backlog organizado das 6 issues do projeto
+│   ├── relatorio_tecnico.md      # Relatório Técnico Completo em Markdown (Entregável Principal)
+│   ├── analise_comparativa.md    # Análise Teórica e Empírica aprofundada (IGIS vs Clássicos)
+│   ├── benchmark_results.md      # Tabelas de dados quantitativos em Markdown
+│   ├── benchmark_results.png     # Gráfico comparativo geral de todos os algoritmos
+│   ├── benchmark_authorials_side_by_side.png # Gráfico lado a lado (IGIS vs DPES)
+│   ├── benchmark_authorials_direct_comparison.png # Gráfico de confronto direto (IGIS vs DPES)
+│   └── issues.md                 # Backlog organizado e detalhado das 6 issues do projeto
 ├── CONTEXT.md                    # Documento unificado de contexto, decisões e invariantes
 └── TP1-Metodos-de-Ordenacao-Autorais.md  # Enunciado oficial da disciplina
 ```
 
 ---
 
-## Como Executar e Reproduzir os Testes
+## Como Executar e Reproduzir os Testes e Benchmarks
 
 ### Pré-requisitos
 * Python 3.10 ou superior.
+* Biblioteca `matplotlib` para geração de gráficos (`pip install matplotlib`).
 
 ### 1. Testes Unitários do Algoritmo Autoral (IGIS)
 Para rodar os testes de sanidade locais específicos do IGIS:
@@ -64,17 +71,26 @@ Para rodar a bateria oficial completa com todos os cenários obrigatórios (vazi
 ```bash
 python codigo/python/test_suite.py
 ```
-*(ou via Makefile: `make test_python` a partir do diretório `codigo/`)*
+*(ou via Makefile: `cd codigo && make test_python`)*
+
+### 3. Reprodução do Benchmark e Geração dos Gráficos
+Para rodar os experimentos quantitativos (variando $N$ e distribuições) e atualizar as tabelas e gráficos:
+```bash
+python codigo/python/benchmark.py
+```
+*(ou via Makefile: `cd codigo && make benchmark_python`)*
+
+> **Nota:** Todos os artefatos de saída do benchmark (tabelas `.md` e os gráficos `.png`) são gerados e salvos automaticamente na pasta `docs/`.
 
 ---
 
 ## Status do Backlog de Issues
 
-O desenvolvimento está estruturado em 6 issues sequenciais:
+O desenvolvimento foi concluído seguindo o plano de 6 issues sequenciais:
 
 - [x] **Issue #01:** Implementação Modular do Algoritmo Autoral (IGIS) com Instrumentação e SOLID.
 - [x] **Issue #02:** Integração e Validação na Suíte Oficial de Corretude (100% de aprovação e estabilidade).
 - [x] **Issue #03:** Integração no Framework de Benchmark e Coleta Experimental.
-- [ ] **Issue #04:** Análise Comparativa Empírica e Teórica vs. Métodos Clássicos.
-- [ ] **Issue #05:** Redação do Relatório Técnico Completo.
-- [ ] **Issue #06:** Revisão de Conformidade, Reprodutibilidade e Pacote de Entrega.
+- [x] **Issue #04:** Análise Comparativa Empírica e Teórica vs. Métodos Clássicos (`docs/analise_comparativa.md`).
+- [x] **Issue #05:** Redação do Relatório Técnico Completo (`docs/relatorio_tecnico.md`).
+- [x] **Issue #06:** Revisão de Conformidade, Reprodutibilidade e Pacote de Entrega.

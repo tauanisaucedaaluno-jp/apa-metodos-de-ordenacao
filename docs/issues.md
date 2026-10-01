@@ -10,8 +10,8 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 - [x] **Concepção e Formalização Inicial:** Ideia do algoritmo (IGIS), pseudocódigo, invariantes e análise teórica preliminar documentados no [CONTEXT.md](../CONTEXT.md).
 - [x] **Benchmarking e Análise Empírica (Issue #03):** Bateria de testes de desempenho concluída com geração de tabelas e gráficos comparativos lado a lado (IGIS vs DPES e baselines).
-- [x] **Análise Comparativa Teórica vs Empírica (Issue #04):** Discussão técnica concluída em `docs/analise_comparativa.md`.
-- [ ] **Relatório Técnico e Empacotamento (Issues #05 e #06):** Redação formal, gráficos e auditoria final do pacote.
+- [x] **Relatório Técnico Completo (Issue #05):** Redação técnica aprofundada estruturada em `docs/relatorio_tecnico.md` cobrindo todas as 7 seções obrigatórias do enunciado.
+- [x] **Empacotamento e Auditoria Final (Issue #06):** Verificação de critérios de rejeito, reprodutibilidade e conformidade do repositório concluída.
 
 ---
 
@@ -88,7 +88,7 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #05: Redação do Relatório Técnico Completo
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Documentação / Relatório
 - **Componente:** `docs/relatorio_tecnico.md` (ou PDF equivalente)
 - **Contexto:**
@@ -108,16 +108,16 @@ Este documento organiza as tarefas e entregáveis do projeto em **6 issues (núm
 
 ## Issue #06: Revisão de Conformidade, Reprodutibilidade e Pacote de Entrega
 
-- **Status:** A Fazer
+- **Status:** Concluída
 - **Tipo:** Release / QA Final
 - **Componente:** Todo o repositório (`codigo/`, `docs/`, `README.md`)
 - **Contexto:**
   O edital prevê critérios de reprovação automática (nota 0,0) por problemas de reprodutibilidade, ausência de declaração de IA, código quebrado ou dependências não documentadas.
 - **Objetivos e Critérios de Aceite:**
   1. Fazer auditoria contra todos os critérios de rejeição do edital:
-     - [ ] Código funcional e 100% aprovado nos testes oficiais (`make test_python`).
-     - [ ] Ausência de plágio ou variação puramente cosmética.
-     - [ ] Declaração formal de autoria e uso de IA presente e preenchida.
-     - [ ] Reprodutibilidade: comandos do `Makefile` e dependências claramente instruídos no README.
+     - [x] Código funcional e 100% aprovado nos testes oficiais (`make test_python`).
+     - [x] Ausência de plágio ou variação puramente cosmética.
+     - [x] Declaração formal de autoria e uso de IA presente e preenchida.
+     - [x] Reprodutibilidade: comandos do `Makefile` e dependências claramente instruídos no README.
   2. Atualizar o `README.md` principal com instruções claras para o professor reproduzir os testes e o benchmark.
   3. Validar se os arquivos finais do relatório (Markdown/PDF) e os gráficos gerados estão íntegros e devidamente organizados na pasta `docs/`.
