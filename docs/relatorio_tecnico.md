@@ -3,6 +3,7 @@
 
 **Disciplina:** Análise e Projetos de Algoritmos (APA) — Trabalho Prático 1 (TP1)
 **Formato de Entrega:** Relatório Técnico
+**Autoras:** Izabel de Oliveira Boaventura e Tauani Ximenes Sauceda
 
 ---
 
